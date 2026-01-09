@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(to bottom, #ffe6eb, #fff);
+  overflow: hidden;
+}
+
+.page {
+  display: none;
+  height: 100vh;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.page.active {
+  display: block;
+}
+
+h1 {
+  color: #8b0000;
+  font-weight: 500;
+}
+
+p, .shayari {
+  font-size: 20px;
+  color: #333;
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.7;
+}
+
+.shayari {
+  font-style: italic;
+  background: rgba(255,230,235,0.8);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #8b0000;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.cat {
+  font-size: 45px;
+  animation: bounce 2s infinite;
+  margin-top: 15px;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Floating hearts */
+.heart {
+  position: fixed;
+  bottom: -10px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(0); opacity: 0.8; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1 -->
+<div class="page active">
+  <h1>Just One Feeling ❤️</h1>
+  <div class="shayari">
+    “Narazgi ka haq bhi tumhe hi hai,<br>
+    Par maafi maangne ka haq maine dil se kamaya hai.”
+  </div>
+  <div class="cat">🐱❤️</div>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page">
+  <h1>From My Heart</h1>
+  <div class="shayari">
+    “Galti meri thi, ye maanta hoon main,<br>
+    Par tumhari khamoshi bhi bahut kuch keh jaati hai.”
+  </div>
+  <div class="cat">🐱❤️</div>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 3 -->
+<div class="page">
+  <h1>Truth</h1>
+  <div class="shayari">
+    “Ego nahi hai is maafi mein,<br>
+    Sirf pyaar hai — aur sudharne ki chahat.”
+  </div>
+  <div class="cat">🐱❤️</div>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 4 -->
+<div class="page">
+  <h1>Only You</h1>
+  <div class="shayari">
+    “Tum samjho ya na samjho,<br>
+    Par tumhare bina sab adhoora sa lagta hai.”
+  </div>
+  <div class="cat">🐱❤️</div>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 5 -->
+<div class="page">
+  <h1>Hope</h1>
+  <div class="shayari">
+    “Maafi mil jaaye ye zaroori nahi,<br>
+    Par maafi maangna mera farz tha.”
+  </div>
+  <div class="cat">🐱❤️</div>
+  <button onclick="nextPage()">Next</button>
+</div>
+
+<!-- PAGE 6 FINAL -->
+<div class="page">
+  <h1>I’m Truly Sorry ❤️</h1>
+
+  <p>
+    Agar meri kisi baat, khamoshi ya behaviour se tumhe dukh hua ho,<br>
+    toh uske liye main dil se maafi chahta hoon.
+  </p>
+
+  <p>
+    Tumhari feelings mere liye bahut important hain.<br>
+    Main koi pressure nahi daalna chahta —<br>
+    bas chahta hoon ki tum jaan lo,<br>
+    tum mere liye sach-mein matter karti ho.
+  </p>
+
+  <p>
+    Agar kabhi ek mauka mile,<br>
+    toh main khud ko behtar saabit karna chahta hoon.
+  </p>
+
+  <div class="cat">🐱❤️</div>
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll(".page");
+
+function nextPage() {
+  pages[current].classList.remove("active");
+  current++;
+  if (current < pages.length) {
+    pages[current].classList.add("active");
+  }
+}
+
+/* Hearts */
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 7000);
+}
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>
